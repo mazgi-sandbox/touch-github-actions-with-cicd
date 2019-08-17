@@ -5,8 +5,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "Hello"
+    - name: save context
+        run: echo ${GITHUB_CONTEXT} > context.json
       env:
-        TAG: ${{ ${REF##*/} }}
+        TAG: ${REF##*/}
         REF: ${{ github.ref }}
         GITHUB_CONTEXT: ${{ toJson(github) }}
+    - name: read context
+      run: cat context.json
