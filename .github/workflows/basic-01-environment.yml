@@ -23,11 +23,11 @@ jobs:
     - run: ls -al ${{ github.workspace }}
 
     - name: Get GitHub Context
-      run: echo "GitHub Context: ${GITHUB_CONTEXT}"
+      run: echo ${GITHUB_CONTEXT} > /tmp/context.json
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
 
     # See also:
     # - https://help.github.com/en/articles/virtual-environments-for-github-actions#environment-variables
-    - run: echo ${GITHUB_REF}
-    - run: echo "branch or tag: ${GITHUB_REF#refs/*/}"
+    - run: echo ${GITHUB_REF} > /tmp/ref.txt
+    - run: echo "branch or tag: ${GITHUB_REF#refs/*/}" > /tmp/branch-or-tag.txt
