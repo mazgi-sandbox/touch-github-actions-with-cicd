@@ -26,3 +26,8 @@ jobs:
 
     - name: Use "quote" 'and' `symbols`.
       run: echo nop
+
+    - name: Create a new release
+      run: sed -e "s!PLACEHOLDER_TAG_NAME!${GITHUB_REF#refs/*/}!g" release-template.json > /tmp/release.json
+    - run: cat /tmp/release.json
+    - run: curl "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases"
