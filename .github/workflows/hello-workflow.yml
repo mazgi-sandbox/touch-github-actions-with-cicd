@@ -7,6 +7,6 @@ jobs:
     steps:
     - run: echo "Hello"
       env:
+        TAG: ${REF##*/}
         REF: ${{ github.ref }}
-        WORKSPACE: ${{ github.WORKSPACE }}
         GITHUB_CONTEXT: ${{ toJson(github) }}
