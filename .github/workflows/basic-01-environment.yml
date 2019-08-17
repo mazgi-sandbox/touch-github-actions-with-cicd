@@ -5,7 +5,9 @@ on:
     branches:
       - master
       - basic-*
-      - refs/pull/basic-*
+  pull_request:
+    branches:
+      - basic-*
 
 jobs:
   read-context-and-vars:
