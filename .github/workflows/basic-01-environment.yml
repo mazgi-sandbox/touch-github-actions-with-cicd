@@ -20,7 +20,7 @@ jobs:
 
     steps:
     - name: Get GitHub Context
-      run: echo "GITHUB_CONTEXT: ${GITHUB_CONTEXT}"
+      run: echo hi
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
 
