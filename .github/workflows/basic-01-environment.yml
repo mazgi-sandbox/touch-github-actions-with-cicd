@@ -6,9 +6,8 @@ on:
       - master
       - basic-*
   pull_request:
-    branches:
-      - master
-      - basic-*
+    paths:
+      - trigers.d/basic/*
 
 jobs:
   read-context-and-vars:
