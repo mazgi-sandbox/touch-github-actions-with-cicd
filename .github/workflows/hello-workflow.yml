@@ -3,7 +3,9 @@ on: [push]
 
 jobs:
   build:
-    nake: hello_job
     runs-on: ubuntu-latest
     steps:
     - run: echo "Hello"
+      env:
+        REF: ${{ github.ref }}
+        WORKSPACE: ${{ github.WORKSPACE }}
