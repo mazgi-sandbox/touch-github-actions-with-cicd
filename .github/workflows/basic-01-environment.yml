@@ -2,10 +2,6 @@ name: basic-01-environment
 
 on:
   push:
-    branches:
-      - master
-      - basic-*
-      - refs/pull/basic-*
 
 jobs:
   read-context-and-vars:
