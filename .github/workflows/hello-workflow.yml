@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: save context
-        run: echo ${REF} > /tmp/context.json
+      run: echo ${REF} > /tmp/context.json
       env:
         TAG: ${REF##*/}
         REF: ${{ github.ref }}
