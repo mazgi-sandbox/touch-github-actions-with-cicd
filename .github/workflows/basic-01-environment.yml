@@ -6,8 +6,6 @@ on:
       - master
       - basic-*
   pull_request:
-    branches:
-      - *
 
 jobs:
   read-context-and-vars:
