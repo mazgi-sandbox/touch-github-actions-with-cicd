@@ -30,4 +30,4 @@ jobs:
     # See also:
     # - https://help.github.com/en/articles/virtual-environments-for-github-actions#environment-variables
     - run: echo ${GITHUB_REF} > /tmp/ref.txt
-    - run: echo "branch or tag: ${GITHUB_REF#refs/*/}" > /tmp/branch-or-tag.txt
+    - run: echo ${GITHUB_REF#refs/*/} > /tmp/branch-or-tag.txt
