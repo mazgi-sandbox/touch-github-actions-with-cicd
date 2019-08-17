@@ -30,7 +30,7 @@ jobs:
     - name: Install the hub command
       run: curl -LO https://github.com/github/hub/releases/download/v2.12.3/hub-darwin-amd64-2.12.3.tgz
     - run: tar xf hub-darwin-amd64-2.12.3.tgz
-    - run: hub-darwin-amd64-2.12.3/bin/hub release create -a release-template.json -m 'release via actions' -t v0.0.1 v0.0.1
+    - run: hub-darwin-amd64-2.12.3/bin/hub release create -a release-template.json -m 'release via actions' v0.0.1
       env:
         GITHUB_USER: mazgi
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
