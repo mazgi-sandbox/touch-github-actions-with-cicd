@@ -5,8 +5,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - run: ls -al ${{ github.workspace }}
     - name: save context
-      run: echo ${REF} > /tmp/context.json
+      run: echo ${GITHUB_CONTEXT} > /tmp/context.json
       env:
         TAG: ${REF##*/}
         REF: ${{ github.ref }}
