@@ -13,10 +13,10 @@ jobs:
     # See also:
     # - https://help.github.com/en/articles/workflow-syntax-for-github-actions#jobsjob_idstrategy
     # - https://help.github.com/en/articles/virtual-environments-for-github-actions#supported-virtual-environments
-    runs-on: $ # runs on each `os`
     strategy:
       matrix:
         os: [macOS-latest, ubuntu-latest]
+    runs-on: $ # runs on each `os`
 
     steps:
     - uses: actions/checkout@v1
