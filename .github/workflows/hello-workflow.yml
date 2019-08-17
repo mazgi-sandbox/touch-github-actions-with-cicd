@@ -7,6 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - run: ls -al ${{ github.workspace }}
+
     - name: save context
       run: echo ${GITHUB_CONTEXT} > /tmp/context.json
       env:
@@ -15,8 +16,11 @@ jobs:
     - name: read context
       run: cat /tmp/context.json
     - name: save ref
-      run: echo ${REF##*/} > /tmp/ref.txt
+      run: echo ${REF#refs/*/} > /tmp/ref.txt
       env:
         REF: ${{ github.ref }}
     - name: read ref
       run: cat /tmp/ref.txt
+
+    - name: Use "quote" 'and' `symbols`.
+      run: echo nop
