@@ -6,10 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: save context
-        run: echo ${GITHUB_CONTEXT} > context.json
+        run: echo ${GITHUB_CONTEXT} > /tmp/context.json
       env:
         TAG: ${REF##*/}
         REF: ${{ github.ref }}
         GITHUB_CONTEXT: ${{ toJson(github) }}
     - name: read context
-      run: cat context.json
+      run: cat /tmp/context.json
