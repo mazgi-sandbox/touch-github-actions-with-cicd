@@ -22,12 +22,21 @@ jobs:
     - uses: actions/checkout@v1
     - run: ls -al ${{ github.workspace }}
 
-    - name: Get GitHub Context
+    - name: Use can use "quote" 'and' `symbols`.
+      run: echo NOP
+
+    - name: You can get GitHub Context
       run: echo ${GITHUB_CONTEXT} > /tmp/context.json
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
 
     # See also:
     # - https://help.github.com/en/articles/virtual-environments-for-github-actions#environment-variables
-    - run: echo ${GITHUB_REF}
-    - run: echo ${GITHUB_REF#refs/*/}
+    - name: You can use "default environment variables"
+      run: echo ${GITHUB_REF}
+    # See also:
+    # - https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
+    - name: And you can use Bash Parameter Expansion
+      run: echo ${GITHUB_REF#refs/*/}
+    - run: echo ${GITHUB_REF%%/*}
+    - run: echo ${NULL_VAR:-Default}
