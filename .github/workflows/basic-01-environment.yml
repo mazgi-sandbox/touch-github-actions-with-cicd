@@ -2,6 +2,10 @@ name: basic-01-environment
 
 on:
   push:
+    branches:
+      - master
+      - basic-*
+      - refs/pull/basic-*
 
 jobs:
   read-context-and-vars:
@@ -12,7 +16,7 @@ jobs:
     runs-on: $ # runs on each `os`
     strategy:
       matrix:
-        os: [macOS-latest]
+        os: [macOS-latest, ubuntu-latest]
 
     steps:
     - uses: actions/checkout@v1
