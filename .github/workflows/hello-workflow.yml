@@ -30,4 +30,4 @@ jobs:
     - name: Create a new release
       run: sed -e "s!PLACEHOLDER_TAG_NAME!${GITHUB_REF#refs/*/}!g" release-template.json > /tmp/release.json
     - run: cat /tmp/release.json
-    - run: curl -X POST -H 'Content-Type: application/json' "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases"
+    - run: curl -X POST -H 'Content-Type: application/json' -d @/tmp/release.json "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases"
