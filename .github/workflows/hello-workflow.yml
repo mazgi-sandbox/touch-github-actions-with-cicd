@@ -32,7 +32,7 @@ jobs:
     - run: tar xf hub-darwin-amd64-2.12.3.tgz
     - run: hub-darwin-amd64-2.12.3/bin/hub release create -a release-template.json -m 'release via actions' -t v0.0.1 v0.0.1
       env:
-        GITHUB_USER: ${{ GITHUB_USER }}
+        GITHUB_USER: mazgi
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Create a new release
