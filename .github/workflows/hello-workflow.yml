@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v1
     - run: ls -al ${{ github.workspace }}
@@ -27,7 +27,11 @@ jobs:
     - name: Use "quote" 'and' `symbols`.
       run: echo nop
 
+    - name: Install the hub command
+      run: curl -LO https://github.com/github/hub/releases/download/v2.12.3/hub-darwin-amd64-2.12.3.tgz
+    - run: tar xf hub-darwin-amd64-2.12.3.tgz
+    - run: hub-darwin-amd64-2.12.3/bin/hub release create -a release-template.json -m 'release via actions' -t v0.0.1 v0.0.1
+
     - name: Create a new release
       run: sed -e "s!PLACEHOLDER_TAG_NAME!${GITHUB_REF#refs/*/}!g" release-template.json > /tmp/release.json
     - run: cat /tmp/release.json
-    - run: curl -X POST -H 'Content-Type: application/json' -d @/tmp/release.json "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases"
