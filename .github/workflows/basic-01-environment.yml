@@ -19,6 +19,9 @@ jobs:
         os: [macOS-latest]
 
     steps:
+    - uses: actions/checkout@v1
+    - run: ls -al ${{ github.workspace }}
+
     - name: Get GitHub Context
       run: echo "GitHub Context: ${GITHUB_CONTEXT}"
       env:
