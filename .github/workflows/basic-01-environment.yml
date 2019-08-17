@@ -16,11 +16,11 @@ jobs:
     runs-on: $ # runs on each `os`
     strategy:
       matrix:
-        os: [macOS-latest, ubuntu-latest, ubuntu-16.04]
+        os: [macOS-latest]
 
     steps:
     - name: Get GitHub Context
-      run: echo hi
+      run: echo "GitHub Context: ${GITHUB_CONTEXT}"
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
 
