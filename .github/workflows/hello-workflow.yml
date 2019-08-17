@@ -10,8 +10,13 @@ jobs:
     - name: save context
       run: echo ${GITHUB_CONTEXT} > /tmp/context.json
       env:
-        TAG: ${REF##*/}
         REF: ${{ github.ref }}
         GITHUB_CONTEXT: ${{ toJson(github) }}
     - name: read context
       run: cat /tmp/context.json
+    - name: save ref
+      run: echo ${REF##*/} > /tmp/ref.txt
+      env:
+        REF: ${{ github.ref }}
+    - name: read ref
+      run: cat /tmp/ref.txt
