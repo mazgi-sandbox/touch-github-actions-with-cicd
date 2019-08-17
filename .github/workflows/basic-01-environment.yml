@@ -1,0 +1,30 @@
+name: basic-01-environment
+
+on:
+  push:
+    branches:
+    - master
+    - basic-*
+    - refs/pull/basic-*
+
+jobs:
+  read-context-and-vars:
+
+    # See also:
+    # - https://help.github.com/en/articles/workflow-syntax-for-github-actions#jobsjob_idstrategy
+    # - https://help.github.com/en/articles/virtual-environments-for-github-actions#supported-virtual-environments
+    runs-on: $ # runs on each `os`
+    strategy:
+      matrix:
+        os: [macOS-latest, ubuntu-latest, ubuntu-16.04]
+
+    steps:
+    - name: Get GitHub Context
+      run: echo "GITHUB_CONTEXT: ${GITHUB_CONTEXT}"
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+
+    # See also:
+    # - https://help.github.com/en/articles/virtual-environments-for-github-actions#environment-variables
+    - run: echo ${GITHUB_REF}
+    - run: echo "branch or tag: ${GITHUB_REF#refs/*/}"
