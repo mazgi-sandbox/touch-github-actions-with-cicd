@@ -35,6 +35,5 @@ jobs:
     - name: Push the Docker image to GitHub Package Registry
       run: docker push $(cat /tmp/tag-for-docker.txt)
 
-    - name: Congrats 🎉
-      run: docker run -t --rm $(cat /tmp/tag-for-docker.txt) busybox | head -1
-    - run: docker run -t --rm $(cat /tmp/tag-for-docker.txt) hostname
+    - name: Run the image
+      run: docker run -t --rm $(cat /tmp/tag-for-docker.txt) echo 'Congrats 🎉'
