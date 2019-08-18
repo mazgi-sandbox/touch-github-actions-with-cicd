@@ -34,3 +34,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_TO_PUSH_TO_PACKAGE_REGISTRY }}
     - name: Push the Docker image to GitHub Package Registry
       run: docker push $(cat /tmp/tag-for-docker.txt)
+
+    - name: Congrats 🎉
+      run: docker run $(cat /tmp/tag-for-docker.txt) uname -a
