@@ -13,4 +13,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Generate tag
-      run: echo docker.pkg.github.com/${{ github.repository }}/${{ github.action }}:${GITHUB_REF#refs/*/}
+      run: echo docker.pkg.github.com/${{ github.repository }}/docker-01-build:${${GITHUB_REF#refs/*/}/master/latest}
