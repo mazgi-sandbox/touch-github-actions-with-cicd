@@ -12,5 +12,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Generate tag
-      run: echo docker.pkg.github.com/${{ github.repository }}/docker-01-build:${${GITHUB_REF#refs/*/}/master/latest}
+    - name: Generate the tag for current build
+      run: export TAG=${GITHUB_REF#refs/*/}; echo docker.pkg.github.com/${{ github.repository }}/docker-01-build:${TAG/master/latest}
