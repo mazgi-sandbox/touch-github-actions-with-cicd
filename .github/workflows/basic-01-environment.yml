@@ -23,7 +23,7 @@ jobs:
     - run: ls -al ${{ github.workspace }}
 
     - name: You can use "quote" 'and' `symbols` 😀
-      run: echo ":sushi:" 🍻
+      run: echo :sushi: 🍻
 
     - name: You can get GitHub Context
       run: echo ${GITHUB_CONTEXT} > /tmp/context.json
