@@ -22,7 +22,7 @@ jobs:
     - uses: actions/checkout@v1
     - run: ls -al ${{ github.workspace }}
 
-    - name: Use can use "quote" 'and' `symbols`.
+    - name: You can use "quote" 'and' `symbols` 😀
       run: echo NOP
 
     - name: You can get GitHub Context
