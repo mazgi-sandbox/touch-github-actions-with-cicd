@@ -39,4 +39,5 @@ jobs:
     - name: And you can use Bash Parameter Expansion
       run: echo ${GITHUB_REF#refs/*/}
     - run: echo ${GITHUB_REF%%/*}
+    - run: echo ${GITHUB_REF+HasTheReference}
     - run: echo ${NULL_VAR:-Default}
