@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    - run: export FOO=foo-bar
+    - run: echo $FOO
 
     - name: Generate the tag for current build
       run: export TAG=${GITHUB_REF#refs/*/}; echo docker.pkg.github.com/${{ github.repository }}/docker-01-build:${TAG/master/latest} > /tmp/tag-for-docker.txt
