@@ -36,5 +36,5 @@ jobs:
       run: docker push $(cat /tmp/tag-for-docker.txt)
 
     - name: Congrats 🎉
-      run: docker run -it --rm $(cat /tmp/tag-for-docker.txt) busybox | head -1
-    - run: docker run -it --rm $(cat /tmp/tag-for-docker.txt) hostname
+      run: docker run -t --rm $(cat /tmp/tag-for-docker.txt) busybox | head -1
+    - run: docker run -t --rm $(cat /tmp/tag-for-docker.txt) hostname
