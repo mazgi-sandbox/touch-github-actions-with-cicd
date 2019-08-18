@@ -19,7 +19,7 @@ jobs:
     - name: Build the Docker image
       run: docker build Dockerfile.d/docker-01-build/ --tag $(cat /tmp/tag-for-docker.txt)
 
-    # You should generate a GITHUB_TOKEN with `write:packages` permission
+    # You should generate a "personal access token" with `write:packages` permission
     # and store it to the `/settings/secrets` with another variable name on the repository.
     # (e.g. `GITHUB_TOKEN_TO_PUSH_TO_PACKAGE_REGISTRY`)
     # Because GitHub creates the GITHUB_TOKEN secret for you by default,
@@ -27,6 +27,7 @@ jobs:
     # See also:
     # - https://help.github.com/en/articles/virtual-environments-for-github-actions#github_token-secret
     # - https://help.github.com/en/articles/virtual-environments-for-github-actions#token-permissions
+    # - https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line
     - name: Login to GitHub Package Registry
       run: docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY/*} -p $GITHUB_TOKEN
       env:
