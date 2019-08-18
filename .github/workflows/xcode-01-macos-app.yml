@@ -14,8 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Set version for alpha release
-      run: /usr/libexec/PlistBuddy -c "Set :CFBundleVersion ${GITHUB_REF#refs/tags/v}" 'Xcode Projects/The Empty/The Empty/Info.plist'
-      if: contains(github.ref, 'refs/tags/v')
+      run: /usr/libexec/PlistBuddy -c "Set :CFBundleVersion ${GITHUB_REF#refs/tags/xcode-}" 'Xcode Projects/The Empty/The Empty/Info.plist'
+      if: contains(github.ref, 'refs/tags/xcode-')
     - name: Build the App
       run: cd 'Xcode Projects/The Empty/' && xcodebuild -target 'The Empty' -scheme 'The Empty' -configuration Release -archivePath build/the-empty clean archive CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
     - name: Export the App
@@ -33,4 +33,3 @@ jobs:
       env:
         GITHUB_USER: mazgi
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      if: contains(github.ref, 'refs/tags/v')
