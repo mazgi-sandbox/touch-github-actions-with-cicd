@@ -13,7 +13,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@master
-    - name: Set version for alpha release
+    - name: Set version from the git tag
       run: /usr/libexec/PlistBuddy -c "Set :CFBundleVersion ${GITHUB_REF#refs/tags/xcode-}" 'Xcode Projects/The Empty/The Empty/Info.plist'
       if: contains(github.ref, 'refs/tags/xcode-')
     - name: Build the App
@@ -33,3 +33,4 @@ jobs:
       env:
         GITHUB_USER: mazgi
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      if: contains(github.ref, 'refs/tags/xcode-')
