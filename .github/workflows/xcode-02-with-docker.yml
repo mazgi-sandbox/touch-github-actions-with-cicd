@@ -20,7 +20,7 @@ jobs:
     - run: cat uname.*
       working-directory: ./working
 
-  build-on-mac:
+  build-on-ubuntu:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
