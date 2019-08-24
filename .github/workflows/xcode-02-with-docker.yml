@@ -13,23 +13,17 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@master
-    - run: uname -a > uname.macos
-      working-directory: ./dummy
-    - run: ls -al
-      working-directory: ./dummy
-    - run: cat uname.*
-      working-directory: ./dummy
+    - run: uname -a > $GITHUB_WORKSPACE/uname.macos
+    - run: ls -al $GITHUB_WORKSPACE
+    - run: cat $GITHUB_WORKSPACE/uname.*
 
   build-on-ubuntu:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - run: uname -a > uname.ubuntu
-      working-directory: ./dummy
-    - run: ls -al
-      working-directory: ./dummy
-    - run: cat uname.*
-      working-directory: ./dummy
+    - run: uname -a > $GITHUB_WORKSPACE/uname.macos
+    - run: ls -al $GITHUB_WORKSPACE
+    - run: cat $GITHUB_WORKSPACE/uname.*
 
   build-on-docker:
     runs-on: ubuntu-latest
@@ -39,15 +33,6 @@ jobs:
       - /data
     steps:
     - uses: actions/checkout@master
-    - run: uname -a > uname.docker
-      working-directory: ./dummy
-    - run: echo '{}' > package.json
-      working-directory: ./dummy
-    - run: npm install
-      working-directory: ./dummy
-    - run: ls -al
-      working-directory: ./dummy
-    - run: cat uname.*
-      working-directory: ./dummy
-    - run: cat package*
-      working-directory: ./dummy
+    - run: uname -a > $GITHUB_WORKSPACE/uname.macos
+    - run: ls -al $GITHUB_WORKSPACE
+    - run: cat $GITHUB_WORKSPACE/uname.*
