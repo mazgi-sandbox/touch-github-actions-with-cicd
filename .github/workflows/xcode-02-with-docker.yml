@@ -1,0 +1,17 @@
+name: xcode-02-with-docker
+
+on:
+  push:
+    branches:
+      - master
+      - xcode-*
+    tags:
+      - xcode-*
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@master
+    - run: which docker
+    - run: docker info
