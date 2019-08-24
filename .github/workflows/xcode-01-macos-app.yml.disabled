@@ -1,4 +1,4 @@
-name: "Xcode 01: Build macOS App"
+name: xcode-01-build-macos-app
 
 on:
   push:

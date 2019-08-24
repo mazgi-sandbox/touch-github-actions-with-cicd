@@ -1,4 +1,4 @@
-name: "Basic 01: Environment"
+name: basic-01-environment
 
 on:
   push:
