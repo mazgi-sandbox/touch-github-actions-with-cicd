@@ -11,6 +11,8 @@ on:
 jobs:
   build-on-mac:
     runs-on: macos-latest
+    volumes:
+    - /data
     steps:
     - uses: actions/checkout@master
     - run: uname -a > uname.macos
@@ -22,6 +24,8 @@ jobs:
 
   build-on-ubuntu:
     runs-on: ubuntu-latest
+    volumes:
+    - /data
     steps:
     - uses: actions/checkout@master
     - run: uname -a > uname.ubuntu
@@ -33,10 +37,14 @@ jobs:
 
   build-on-docker:
     runs-on: ubuntu-latest
+    volumes:
+    - /data
     container:
       image:  node:10
     steps:
     - uses: actions/checkout@master
+    - run: uname -a > uname.docker
+      working-directory: ./dummy
     - run: echo '{}' > package.json
       working-directory: ./dummy
     - run: npm install
