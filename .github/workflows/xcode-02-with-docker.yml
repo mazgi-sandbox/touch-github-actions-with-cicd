@@ -13,7 +13,6 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@master
-    steps:
     - run: uname -a > ./dummy/uname.macos
     - publish: dummy
       artifact: Dummy
