@@ -33,10 +33,10 @@ jobs:
 
   build-on-docker:
     runs-on: ubuntu-latest
-    volumes:
-    - /data
     container:
       image:  node:10
+      volumes:
+      - /data
     steps:
     - uses: actions/checkout@master
     - run: uname -a > uname.docker
