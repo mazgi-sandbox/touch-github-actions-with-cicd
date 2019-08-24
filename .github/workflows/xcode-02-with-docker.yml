@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - run: uname -a > $GITHUB_WORKSPACE/uname.macos
+    - run: uname -a > $GITHUB_WORKSPACE/uname.ubuntu
     - run: ls -al $GITHUB_WORKSPACE
     - run: cat $GITHUB_WORKSPACE/uname.*
 
@@ -33,6 +33,6 @@ jobs:
       - /data
     steps:
     - uses: actions/checkout@master
-    - run: uname -a > $GITHUB_WORKSPACE/uname.macos
+    - run: uname -a > $GITHUB_WORKSPACE/uname.docker
     - run: ls -al $GITHUB_WORKSPACE
     - run: cat $GITHUB_WORKSPACE/uname.*
