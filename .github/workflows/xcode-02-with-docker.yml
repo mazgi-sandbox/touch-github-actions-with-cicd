@@ -9,15 +9,41 @@ on:
       - xcode-*
 
 jobs:
-  build:
+  build-on-mac:
     runs-on: macos-latest
-
-    container:
-      image:  node:10.16-jessie
-
     steps:
     - uses: actions/checkout@master
-    - name: Set Node.js 10.x
-      uses: actions/setup-node@master
-      with:
-        version: 10.x
+    - run: uname -a > uname.macos
+      working-directory: ./working
+    - run: ls -al
+      working-directory: ./working
+    - run: cat uname.*
+      working-directory: ./working
+
+  build-on-mac:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - run: uname -a > uname.ubuntu
+      working-directory: ./working
+    - run: ls -al
+      working-directory: ./working
+    - run: cat uname.*
+      working-directory: ./working
+
+  build-on-docker:
+    runs-on: ubuntu-latest
+    container:
+      image:  node:10
+    steps:
+    - uses: actions/checkout@master
+    - run: echo '{}' > package.json
+      working-directory: ./working
+    - run: npm install
+      working-directory: ./working
+    - run: ls -al
+      working-directory: ./working
+    - run: cat uname.*
+      working-directory: ./working
+    - run: cat package*
+      working-directory: ./working
