@@ -13,5 +13,5 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@master
-    - run: brew install docker
+    - run: brew cask install docker
     - run: docker info
