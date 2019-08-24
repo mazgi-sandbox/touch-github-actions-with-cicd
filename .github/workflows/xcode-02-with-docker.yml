@@ -13,5 +13,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@master
-    - run: which docker
-    - run: docker info
+    - name: Set Node.js 10.x
+      uses: actions/setup-node@master
+      with:
+        version: 10.x
