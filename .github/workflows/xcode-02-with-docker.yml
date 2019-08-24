@@ -13,26 +13,5 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@master
-    - run: uname -a > $GITHUB_WORKSPACE/uname.macos
-    - run: ls -al $GITHUB_WORKSPACE
-    - run: cat $GITHUB_WORKSPACE/uname.*
-
-  build-on-ubuntu:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - run: uname -a > $GITHUB_WORKSPACE/uname.ubuntu
-    - run: ls -al $GITHUB_WORKSPACE
-    - run: cat $GITHUB_WORKSPACE/uname.*
-
-  build-on-docker:
-    runs-on: ubuntu-latest
-    container:
-      image:  node:10
-      volumes:
-      - /data
-    steps:
-    - uses: actions/checkout@master
-    - run: uname -a > $GITHUB_WORKSPACE/uname.docker
-    - run: ls -al $GITHUB_WORKSPACE
-    - run: cat $GITHUB_WORKSPACE/uname.*
+    - run: brew install docker
+    - run: docker info
